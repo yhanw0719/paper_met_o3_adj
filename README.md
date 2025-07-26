@@ -3,12 +3,12 @@
 
 This repository contains inputs and outputs used in the manuscript:
 
-Temperature and Stagnation Effects on Ozone Sensitivity to NOx and VOC: An Adjoint Modeling Study in Central California. 
-Yuhan Wang, Lucas Bastien, Yuan Wang, Ling Jin, and Robert Harley.
+Title: Temperature and Stagnation Effects on Ozone Sensitivity to NOx and VOC: An Adjoint Modeling Study in Central California. 
+
+Author: Yuhan Wang, Lucas Bastien, Yuan Wang, Ling Jin, and Robert Harley.
 
 
-#######################################################################################
-Acronyms:
+## Acronym
 EP 224 = Baseline
 EP 209 = High-T
 EP 258 = Stagnation
@@ -20,25 +20,24 @@ adj = adjoint model outputs
 SARMAP = study domain name
 
 
-#######################################################################################
-Note:
+## Note
 The complete i/o dataset for all model runs are at ~TB level, and original data files are in netcdf format. To reduce data size, key files/variables are extracted and postprocessed into RData format here. For questions or access to original data, please contact yhanw@stanford.edu (Yuhan Wang). 
 
 
-#######################################################################################
-Folder and file description:
+## Folder and file description
 
 (1) "met" folder contains meteorological inputs used for CMAQ and adjoint simulations. 
+
+Original data are in netcdf format. Four key variables above are extracted into RData arrays of 96 (x) * 117 (y) * 168 (hours) *  3 (episode) dimension:
 PBL: Planetary boundary layer height (m)
 temperature: surface temperature (K)
 uwind.surface: surface wind u component (m/s)
 vwind.surface: surface wind v component (m/s)
-  
-Original data are in netcdf format. Four key variables above are extracted into RData arrays of 96 (x) * 117 (y) * 168 (hours) *  3 (episode) dimension. 
 
-## Example R code to find PBL at grid (40,50), last timestep (168) under baseline (ep 224) meteorology
+Example R code:
 load("PBL.arr.RData")
-print(arr[40,50,168,'224']) 
+print(arr[40,50,168,'224'])  # to find PBL at grid (40,50), last timestep (168) under baseline (ep 224) meteorology
+
 
 (2) "grid" folder includes grid definition for crosswalk between x/y index and lat/lon. 
 
